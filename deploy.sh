@@ -1,6 +1,7 @@
 #!/bin/bash
-git clone https://github.com/ziabs/url-urlshortener.git
-cd url-urlshortener
+
+#git clone https://github.com/ziabs/url-urlshortener.git
+#cd url-urlshortener
 
 docker build -t "urlshort:1" -f docker/DockerFile .
 docker network create urlshortz
