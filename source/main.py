@@ -41,7 +41,7 @@ class MakeShort():
     def shortAdd(self, url):
         try:
             short = ''.join(re.findall(r'\d+', str(datetime.datetime.now())))
-            r = redis.Redis(host='redis', port=6379, db=0, charset="utf-8")
+            r = redis.Redis(host='rdb', port=6379, db=0, charset="utf-8")
             r.set(short, url)
             return short
         except Exception as e:
@@ -62,7 +62,7 @@ Fetch from DB and Redirect to the actual URL
 '''
 class GetShort():
     def shortFetch(self, short):
-        r = redis.Redis(host='redis', port=6379, db=0, charset="utf-8")
+        r = redis.Redis(host='rdb', port=6379, db=0, charset="utf-8")
         url = r.get(short)
         return url
 
